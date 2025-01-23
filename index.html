@@ -1,24 +1,180 @@
-<html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hawi</title>
-    <link rel="icon" href="H.png">
+    <title>My Portfolio</title>
     <style>
-        body {
-            background-color: black;
+        /* Reset styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Full-page container */
+        .container {
+            overflow-y: scroll;
+            height: 100vh;
+        }
+        .container::-webkit-scrollbar {
+        display: none; /* Menyembunyikan scrollbar */
+        }
+
+        /* Each section is a full page */
+        section {
+            scroll-snap-align: start;
+            height: 100vh;
             display: flex;
+            flex-direction: column; /* Ensure proper stacking of elements */
             justify-content: center;
             align-items: center;
+            text-align: center;
+            padding: 20px;
         }
+
+        /* Styling sections */
+        #home {
+            background: url('Tree_1.jpg') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+        }
+
+        #about {
+            background: url('Tree_2.jpg') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+        }
+
+        #projects {
+            background: url('Tree_3.jpg') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+        }
+
+        #contact {
+            background: url('Tree_4.jpg') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+        }
+
+        /* Navigation styling */
+        nav {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        nav a:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Style for headings and paragraphs */
+        h1, h2 {
+            margin: 10px 0;
+            font-size: 2.5rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            max-width: 700px;
+        }
+        /* Style untuk heading dan paragraf */
+        h1, h2, p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Membuat outline seperti bayangan */
+        }
+
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Handle navigation clicks
+            const navLinks = document.querySelectorAll("nav a");
+
+            navLinks.forEach(link => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault(); // Prevent default link behavior
+                    const targetId = this.getAttribute("data-target");
+                    const targetSection = document.querySelector(`#${targetId}`);
+                    targetSection.scrollIntoView({ behavior: "smooth" });
+                });
+            });
+        });
+    </script>
 </head>
 <body>
-<!--     <video width="320" height="180" controls>
-        <source src="Rickroll.mp4" type="video/mp4" />
-        Browser kamu tidak support video tag.
-    </video> -->
-    <a href="https://hawianugrah.github.io/portofolio">Portofolio</a>
+    <nav>
+        <a href="#" data-target="home">Home</a>
+        <a href="#" data-target="about">About Me</a>
+        <a href="#" data-target="projects">Projects</a>
+        <a href="#" data-target="contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <!-- Section Home -->
+        <section id="home">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Hi, I'm Hawi, a passionate developer ready to create amazing projects!</p>
+        </section>
+
+        <!-- Section About Me -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am a developer with a passion for creating clean, efficient, and user-friendly applications. My goal is to deliver impactful solutions for real-world problems.</p>
+        </section>
+
+        <!-- Section Projects -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <p>Here will be a list of amazing projects I have worked on!</p>
+        </section>
+
+        <!-- Section Contact -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>If you'd like to work together or have any questions, feel free to reach out!</p>
+            <!-- Tambahkan div pembungkus untuk gambar -->
+            <div class="social-links">
+                <a
+                  href="https://www.instagram.com/hawianugrah/"
+                  onclick="return confirm('You are going to be redirected to an external link.\n\nDo you wish to proceed?');"
+                  target="_blank"
+                ><img
+                  src="https://s3.eu-west-1.amazonaws.com/cdn.growtopiagame.com/website/resources/assets/images/grow_insta.png"
+                  alt="Instagram"
+              /></a>
+                <a
+                href="https://twitter.com/hawigt"
+                onclick="return confirm('You are going to be redirected to an external link.\n\nDo you wish to proceed?');"
+                target="_blank"
+                ><img
+                src="https://s3.eu-west-1.amazonaws.com/cdn.growtopiagame.com/website/resources/assets/images/grow_twitter.png"
+                alt="Twitter"
+              /></a>
+                <a
+                href="https://www.facebook.com/hawi.anugrah"
+                onclick="return confirm('You are going to be redirected to an external link.\n\nDo you wish to proceed?');"
+                target="_blank"
+                ><img
+          src="https://s3.eu-west-1.amazonaws.com/cdn.growtopiagame.com/website/resources/assets/images/grow_fb.png"
+          alt="Facebook"
+              /></a>  
+            </div>
+        </section>
+    </div>
 </body>
 </html>
